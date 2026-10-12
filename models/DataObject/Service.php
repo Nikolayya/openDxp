@@ -1568,8 +1568,7 @@ class Service extends Model\Element\Service
         string $requestedLanguage,
         array $helperDefinitions,
         array $context = [],
-    ): string
-    {
+    ): string {
         //check if field is systemfield
         $systemFieldMap = [
             'id' => 'getId',
