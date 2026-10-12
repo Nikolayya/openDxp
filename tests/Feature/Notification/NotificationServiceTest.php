@@ -125,6 +125,22 @@ it('sends a notification to every user of a group', function () {
         ->toBe(1);
 });
 
+it('counts an unread notification', function () {
+    $userId = UserFactory::createOne()->getId();
+
+    $this->notifications->sendToUser($userId, 0, 'Title', 'Message');
+
+    expect($this->notifications->countAllUnread($userId))->toBe(1);
+});
+
+it('finds the last unread notification since a point in time', function () {
+    $userId = UserFactory::createOne()->getId();
+
+    $this->notifications->sendToUser($userId, 0, 'Title', 'Message');
+
+    expect($this->notifications->findLastUnread($userId, time() - 60)['total'])->toBe(1);
+});
+
 it('marks a notification of its recipient as read', function () {
     $userId = UserFactory::createOne()->getId();
     $this->notifications->sendToUser($userId, 0, 'Title', 'Message');

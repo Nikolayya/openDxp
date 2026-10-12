@@ -28,9 +28,6 @@ use OpenDxp\Model\User;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use UnexpectedValueException;
 
-/**
- * Please note that for Studio Bundle you have to use the service bundled there.
- */
 class NotificationService
 {
     /**
@@ -169,8 +166,6 @@ class NotificationService
     {
         $listing = new Listing();
 
-        $filter  = [...$filter, ...['isStudio' => 0]];
-
         $conditions = [];
         $conditionVariables = [];
         foreach ($filter as $key => $value) {
@@ -213,7 +208,7 @@ class NotificationService
     {
         $listing = new Listing();
         $listing->setCondition(
-            'recipient = ? AND `read` = 0 AND `isStudio` = 0 AND creationDate >= ?',
+            'recipient = ? AND `read` = 0 AND creationDate >= ?',
             [
                 $user,
                 date(DateFormat::DATETIME, $lastUpdate),
@@ -267,7 +262,7 @@ class NotificationService
     public function countAllUnread(int $user): int
     {
         $listing = new Listing();
-        $listing->setCondition('recipient = ? AND `read` = 0 AND `isStudio` = 0', [$user]);
+        $listing->setCondition('recipient = ? AND `read` = 0', [$user]);
 
         return $listing->count();
     }
