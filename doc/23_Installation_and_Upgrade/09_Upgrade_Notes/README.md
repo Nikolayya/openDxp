@@ -42,7 +42,7 @@
 - Bugfix: Saving a classification store key writes the name of the key into its definition, so the key name follows the rule for field names too.
 - Bugfix: A messenger worker sends the HTTP cache invalidations after each message, so a page that a scheduled task publishes reaches the proxy right away.
 - Bugfix: A Twig placeholder in a link of the WYSIWYG editor keeps its spaces, for example `mailto:{{ email }}`. A link that already holds `{{%20email%20}}` is repaired the next time its editor is saved.
-- Chore: Remove the Studio flag of notifications. `OpenDxp\Model\Notification::isStudio()` and `setIsStudio()` are gone. Run the core migrations: they delete the notifications created for Studio, which the admin interface never showed, and drop the column `notifications.isStudio`.
+- Chore: Remove the Studio flag of notifications. `OpenDxp\Model\Notification::isStudio()` and `setIsStudio()` are gone.
 
 ## OpenDXP 1.4.3
 - Bugfix: Static routes without their own `_locale` now use the language of the nearest document. Before, they used the default locale, so translations and generated links could be in the wrong language. This became visible with Symfony 7.4.17 [#197](https://github.com/open-dxp/opendxp/issues/197)
