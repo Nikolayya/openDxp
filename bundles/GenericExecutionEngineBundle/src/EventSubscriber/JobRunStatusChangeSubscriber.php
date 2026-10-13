@@ -26,9 +26,8 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
  */
 final readonly class JobRunStatusChangeSubscriber
 {
-    public function __construct(
-        private EventDispatcherInterface $eventDispatcher,
-    ) {
+    public function __construct(private EventDispatcherInterface $eventDispatcher,)
+    {
 
     }
 
