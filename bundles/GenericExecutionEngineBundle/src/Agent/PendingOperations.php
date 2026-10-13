@@ -28,7 +28,7 @@ use Symfony\Component\Clock\Clock;
  */
 final readonly class PendingOperations
 {
-    public function __construct(private Connection $db,)
+    public function __construct(private Connection $db)
     {
     }
 

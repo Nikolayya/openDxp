@@ -21,7 +21,7 @@ use OpenDxp\Bundle\GenericExecutionEngineBundle\Agent\JobTrackingAgentInterface;
 
 final readonly class ProductImport
 {
-    public function __construct(private JobTrackingAgentInterface $jobTrackingAgent,)
+    public function __construct(private JobTrackingAgentInterface $jobTrackingAgent)
     {
     }
 

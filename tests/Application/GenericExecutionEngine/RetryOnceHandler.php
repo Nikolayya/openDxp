@@ -20,7 +20,7 @@ use RuntimeException;
 
 final readonly class RetryOnceHandler
 {
-    public function __construct(private Notes $notes,)
+    public function __construct(private Notes $notes)
     {
     }
 
